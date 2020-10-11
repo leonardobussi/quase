@@ -14,11 +14,6 @@
                 <li class="age" [ngClass]="{'age-free': title.age === 0, 'age-12': title.age === 12, 'age-14': title.age === 14, 'age-16': title.age === 16, 'age-18': title.age === 18}"></li>
                 <li class="parts">{{title.parts}}</li>
             </ul>
-            <ul class="categories">
-                <li *ngFor="let cat of title.categories">
-                    {{cat}}
-                </li>
-            </ul>
         </div>
     </div>
 
