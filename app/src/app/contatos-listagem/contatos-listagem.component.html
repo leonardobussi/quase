@@ -1,8 +1,32 @@
-<div *ngFor="let dados of contatos"> 
-    <h2>{{dados.nome}}</h2>
-    <img src="{{dados.foto}}" alt=""> 
-    <video controls  src="{{dados.video}}"></video> 
-    <h3>{{dados.relevancia}}</h3> 
-    <h4>{{dados.ano}}</h4>
-    <h5>{{dados.part}}</h5>
+<div class="p-3 list-titles">
+
+    <h2 class="h4">Videos</h2>
+
+    <div class="d-flex flex-nowrap overflow-hidden">
+
+        <div *ngFor="let dados of contatos"   class="title-item"> <!-- (mouseenter)="playVideo()" (mouseleave)="stopVideo()"  > -->
+            <video style="height: 300px; width: 300px;" src="{{dados.video}}" controls muted="muted"></video> <!--#trailer--> 
+            <img style="height: 300px; width: 300px;" src="{{dados.foto}}" alt="Título">
+            <div class="items">
+                <div class="left-side">
+                    <!-- <button type="button" class="btn-play"><i class="material-icons">play_arrow</i></button> -->
+                    <button type="button" class="btn-play btn-muted"> <!--(click)="toggleSound()" > -->
+                        <!-- <i class="material-icons" *ngIf="!getMuted()" >volume_up</i>
+                        <i class="material-icons" *ngIf="getMuted()" >volume_off</i> -->
+                    </button>
+                    <h2>{{dados.nome}}</h2>
+                    <ul class="infos">
+                        <li class="relevance">{{dados.relevancia}} Relevance</li>
+                        <li class="age">{{dados.ano}}</li>
+                        <!-- <li class="age" [ngClass]="{'age-free': dados.ano === 0, 'age-12': dados.ano === 12, 'age-14': dados.ano === 14, 'age-16': dados.ano === 16, 'age-18': dados.ano === 18}"></li> -->
+                    </ul>
+                </div>
+            </div>
+        
+        </div>
+        
+    </div>
+
 </div>
+
+
