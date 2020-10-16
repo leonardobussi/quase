@@ -5,19 +5,20 @@
 
         <div  class="title-item" > 
             <h3>{{dados.nome}}</h3>
+            <ul class="infos">
+                <li class="relevance">Relevancia {{dados.relevancia}}</li>
+                <li class="age">idade {{dados.ano}}</li>
+            </ul>
             <iframe 
                 width="560" 
                 height="315" 
-                [src]="safeSrc"
+                [src]="getEmbedUrl(dados)" 
                 frameborder="0" 
                 allowfullscreen>
             </iframe>
         </div>
         
-        <ul class="infos">
-            <li class="relevance">{{dados.relevancia}} Relevance</li>
-            <li class="age">{{dados.ano}}</li>
-        </ul>
+        
     </div>
     
 </div>

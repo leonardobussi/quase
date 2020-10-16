@@ -9,14 +9,9 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class ContatosListagemComponent implements OnInit {
 
-  contatos: Array<any[]>;
-  name = 'Angular 6';
-  safeSrc: SafeResourceUrl;
+  contatos: Array<any>;
 
-
-  constructor(private contatoService: ContatoService, private sanitizer: DomSanitizer) {
-    this.safeSrc =  this.sanitizer.bypassSecurityTrustResourceUrl("https://www.youtube.com/embed/ZNSWsDJ-Su0");
-   }
+  constructor(private contatoService: ContatoService, private sanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.listar()
@@ -24,6 +19,9 @@ export class ContatosListagemComponent implements OnInit {
   listar(){
     return this.contatoService.listar().subscribe(dados => this.contatos = dados)
   }
- 
+  getEmbedUrl(dados){
+    const {videoID} = dados
+    return this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+videoID)
+  }
 
 }
